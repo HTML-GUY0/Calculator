@@ -1,2 +1,2 @@
 # Calculator
-It is a Simple Scientific Calculator 
+It is a Simple Calculator
