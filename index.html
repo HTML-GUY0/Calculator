@@ -3,50 +3,35 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Calculator</title>
+  <title>Lottie Animation with Loading Screen</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="calculator">
-    <div class="display">
-      <input type="text" id="result" disabled />
-    </div>
-    <div class="buttons">
-      <!-- Row 1 -->
-      <button class="red-button" onclick="clearResult()">AC</button>
-      <button class="red-button" onclick="deleteChar()">DEL</button>
-      <button onclick="insert('%')">%</button>
-      <button onclick="insert('÷')">÷</button>
-      <!-- Row 2 -->
-      <button onclick="insert('7')">7</button>
-      <button onclick="insert('8')">8</button>
-      <button onclick="insert('9')">9</button>
-      <button onclick="insert('*')">x</button>
-      <!-- Row 3 -->
-      <button onclick="insert('4')">4</button>
-      <button onclick="insert('5')">5</button>
-      <button onclick="insert('6')">6</button>
-      <button onclick="insert('-')">-</button>
-      <!-- Row 4 -->
-      <button onclick="insert('1')">1</button>
-      <button onclick="insert('2')">2</button>
-      <button onclick="insert('3')">3</button>
-      <button onclick="insert('+')">+</button>
-      <!-- Row 5 -->
-      <button onclick="insert('0')">0</button>
-      <button onclick="insert('.')">.</button>
-      <button onclick="calculate()">=</button>
-      <button onclick="insert('(')">(</button>
-      <button onclick="insert(')')">)</button>
-      <!-- Scientific Functions -->
-      <button onclick="insert('Math.sin(')">sin</button>
-      <button onclick="insert('Math.cos(')">cos</button>
-      <button onclick="insert('Math.tan(')">tan</button>
-      <button onclick="insert('Math.sqrt(')">√</button>
-      <button onclick="insert('Math.pow(')">x^y</button>
-      <button onclick="insert('Math.log(')">ln</button>
-    </div>
+  <div id="lottie-container">
+    <!-- Loading screen -->
+    <div id="loading-screen">Loading...</div>
+
+    <!-- Lottie Animation Container -->
+    <div id="lottie"></div>
   </div>
-  <script src="script.js"></script>
+
+  <!-- Lottie Library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.12.2/lottie.min.js"></script>
+
+  <script>
+    // Load the Lottie animation
+    var animation = lottie.loadAnimation({
+      container: document.getElementById('lottie'), // Target container
+      renderer: 'svg', // Render format (svg, canvas, or html)
+      loop: true, // Should the animation loop
+      autoplay: true, // Should it play automatically
+      path: 'https://assets2.lottiefiles.com/packages/lf20_ydo1amjm.json' // URL to JSON animation file
+    });
+
+    // When the animation is loaded, hide the loading screen
+    animation.addEventListener('DOMLoaded', function() {
+      document.body.classList.add('loaded');
+    });
+  </script>
 </body>
 </html>
