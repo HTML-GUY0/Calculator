@@ -15,8 +15,8 @@ function deleteChar() {
 function calculate() {
   const result = document.getElementById("result");
   try {
-    // Replace '×' with '*' before evaluating
-    result.value = eval(result.value.replace(/×/g, '*'));
+    // Replace '×' with '×' before evaluating
+    result.value = eval(result.value.replace(/×/g, '×'));
   } catch (error) {
     result.value = "Error";
   }
