@@ -6,7 +6,7 @@ window.onload = function () {
   setTimeout(() => {
     splashScreen.style.display = "none"; // Hide splash screen
     mainApp.style.display = "block";    // Show main app
-  }, 2500); // Adjust the delay to match the fade-out animation
+  }, 2500);
 };
 
 // Calculator functions
@@ -27,8 +27,7 @@ function deleteChar() {
 function calculate() {
   const result = document.getElementById("result");
   try {
-    // Replace '×' with '*' and '÷' with '/'
-    result.value = eval(result.value.replace(/×/g, "*").replace(/÷/g, "/"));
+    result.value = eval(result.value.replace(/x/g, "*").replace(/÷/g, "/"));
   } catch {
     result.value = "Error";
   }
