@@ -1,3 +1,15 @@
+// Show the main app after the splash screen is hidden
+window.onload = function () {
+  const splashScreen = document.getElementById("splash-screen");
+  const mainApp = document.getElementById("main-app");
+
+  setTimeout(() => {
+    splashScreen.style.display = "none"; // Hide splash screen
+    mainApp.style.display = "block";    // Show main app
+  }, 2500); // Adjust the delay to match the fade-out animation
+};
+
+// Calculator functions
 function insert(value) {
   const result = document.getElementById("result");
   result.value += value;
@@ -15,7 +27,7 @@ function deleteChar() {
 function calculate() {
   const result = document.getElementById("result");
   try {
-    // Replace '×' with '*' and '÷' with '/' before evaluating
+    // Replace '×' with '*' and '÷' with '/'
     result.value = eval(result.value.replace(/×/g, "*").replace(/÷/g, "/"));
   } catch {
     result.value = "Error";
