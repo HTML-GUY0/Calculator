@@ -1,11 +1,23 @@
 # Calculator
 It is a Simple Calculator, consisting of multiplication, addition, subtraction, division and more.
 
+# 💻 Desktop Demo
+![Calculator Demo](example-desktop.png)
+
+# 📱 Mobile Demo
+![Calculator Demo](example-mobile.png)
+
 # ❌ Errors
-I tried to make it a scientific calculator but it didn't work out well so there will be some errors using the scientific feature
+
+- There are no errors:)
 
 # ⭐ What's Special?
-The only thing that I found special about this Calculator is that its made out of only 50-70 lines of code using HTML, CSS and JavaScript and still looks good.
 
+- It has a good UI 
+  
+- Scientific features
+
+- Only made with 30-60 lines of code
+  
 # 🔴 Live Preview
 https://html-guy0.github.io/Calculator/
