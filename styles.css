@@ -127,7 +127,7 @@ body,html {
 }
 
 button {
-  background: rgba(255, 255, 255, 0.1); /* semi-transparent */
+  background: rgba(255, 255, 255, 0.1);
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 12px;
   padding: 15px;
@@ -138,6 +138,13 @@ button {
   -webkit-backdrop-filter: blur(10px);
   transition: background 0.3s ease, transform 0.2s ease;
   font-family: montserrat, sans-serif;
+  -webkit-tap-highlight-color: transparent;
+  outline: none;              
+}
+
+button:focus {
+  outline: none;
+  box-shadow: none;
 }
 
 button:hover {
@@ -148,6 +155,37 @@ button:hover {
 button:active {
   background: rgba(255, 255, 255, 0.3);
   transform: scale(0.95);
+}
+
+/* Bottom row layout */
+.bottom-row {
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+}
+
+.equals-button {
+  grid-column: span 2; /* still wider */
+  background: rgba(255, 255, 255, 0.15); /* same glass tone as others */
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  font-size: 1.4em;
+  font-weight: bold;
+  color: #fff;
+  border-radius: 14px;
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.4); /* subtle glow */
+  transition: all 0.3s ease;
+}
+
+.equals-button:hover {
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 0 18px rgba(255, 255, 255, 0.7);
+}
+
+.equals-button:active {
+  background: rgba(255, 255, 255, 0.35);
+  transform: scale(0.96);
 }
 
 /* Red Buttons (DEL and AC) with glass effect */
