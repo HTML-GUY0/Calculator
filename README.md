@@ -20,4 +20,4 @@ It is a Simple Calculator, consisting of multiplication, addition, subtraction, 
 - Only made with 30-60 lines of code
   
 # 🔴 Live Preview
-https://html-guy0.github.io/Calculator/
+# https://html-guy0.github.io/Calculator/
