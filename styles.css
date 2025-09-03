@@ -1,15 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Varela+Round&display=swap');
+
 /* General styles */
-body {
-  font-family: Arial, sans-serif;
+body,html {
+  background: radial-gradient(circle at bottom, 
+    #2563eb 0%, 
+    #0f172a 40%, 
+    #000 80%);
+  font-family: Montserrat, sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #121212;
   color: #fff;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
   overflow: hidden;
+  touch-action: none;
+}
+
+.num-font {
+  font-family: "Varela Round", sans-serif;
 }
 
 /* Splash Screen */
@@ -17,21 +31,27 @@ body {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   background-color: #1e1e1e;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   z-index: 1000;
-  animation: fadeOut 2.5s ease-in-out forwards; /* Hide after 2.5 seconds */
+  animation: fadeOut 2.5s ease-in-out forwards; 
+}
+
+#splash-screen h1 {
+  background: linear-gradient(90deg, #06b6d4, #3b82f6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 /* Loader Animation */
 .loader {
   border: 5px solid #444;
-  border-top: 5px solid #3b82f6; /* Blue top border */
+  border-top: 5px solid #3b82f6; 
   border-radius: 50%;
   width: 50px;
   height: 50px;
@@ -47,12 +67,6 @@ body {
   }
 }
 
-#splash-screen h1 {
-  font-size: 1.5rem;
-  color: #3b82f6;
-  margin-top: 20px;
-}
-
 /* Fade-out animation */
 @keyframes fadeOut {
   0% {
@@ -64,10 +78,10 @@ body {
   }
 }
 
-/* Main Calculator (hidden by default) */
+/* Main Calculator */
 #main-app {
+  display: flex;
   animation: fadeIn 1s forwards;
-  display: none;
 }
 
 @keyframes fadeIn {
@@ -81,23 +95,28 @@ body {
 
 /* Calculator Styles */
 .calculator {
-  background-color: #1e1e1e;
-  border-radius: 10px;
+  background: rgba(30, 30, 30, 0.4); /* transparent dark layer */
+  border-radius: 16px;
   padding: 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(12px); /* adds glass blur effect */
+  -webkit-backdrop-filter: blur(12px);
   width: 350px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .display input {
   width: 100%;
   height: 50px;
   border: none;
-  border-radius: 5px;
-  padding: 10px;
+  border-radius: 8px;  
+  padding: 10px 15px;
   background-color: #2a2a2a;
   color: #fff;
   font-size: 1.2em;
   text-align: right;
+  box-sizing: border-box;
+  margin-bottom: 15px;
 }
 
 .buttons {
@@ -108,32 +127,37 @@ body {
 }
 
 button {
-  background-color: #333;
-  border: none;
-  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.1); /* semi-transparent */
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
   padding: 15px;
   font-size: 1em;
   color: #fff;
   cursor: pointer;
-  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: background 0.3s ease, transform 0.2s ease;
+  font-family: montserrat, sans-serif;
 }
 
 button:hover {
-  background-color: #555;
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
 }
 
 button:active {
-  background-color: #222;
-  box-shadow: 0 0 8px 2px #3b82f6; /* Blue glow on click */
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(0.95);
 }
 
+/* Red Buttons (DEL and AC) with glass effect */
 .red-button {
-  background-color: #b22222;
-  color: white;
+  background: rgba(255, 0, 0, 0.2);
+  border: 1px solid rgba(255, 0, 0, 0.4);
 }
 
 .red-button:hover {
-  background-color: #ff4444;
+  background: rgba(255, 0, 0, 0.3);
 }
 
 .red-button:active {

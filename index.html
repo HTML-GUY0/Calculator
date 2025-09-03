@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,49 +10,58 @@
   <div id="splash-screen">
     <div class="loader"></div>
     <h1>Loading...</h1>
-  </div>
+  </div>  <!-- Main Calculator App -->  <div id="main-app">
+    <div class="calculator">
+      <div class="display">
+        <input type="text" id="result" disabled />
+      </div>
+      <div class="buttons">
+        <!-- Row 1 -->
+<button class="red-button" onclick="clearResult()">AC</button>
+<button class="red-button" onclick="deleteChar()">DEL</button>
+<button onclick="insert(' % ')">%</button>
+<button onclick="insert(' ÷ ')">÷</button>
 
-  <!-- Main Calculator -->
-  <div class="calculator" id="main-app" style="display: none;">
-    <div class="display">
-      <input type="text" id="result" disabled />
+<!-- Row 2 -->
+<button class="num-font" onclick="insert('7')">7</button>
+<button class="num-font" onclick="insert('8')">8</button>
+<button class="num-font" onclick="insert('9')">9</button>
+<button onclick="insert(' × ')">×</button>
+
+<!-- Row 3 -->
+<button class="num-font" onclick="insert('4')">4</button>
+<button class="num-font" onclick="insert('5')">5</button>
+<button class="num-font" onclick="insert('6')">6</button>
+<button onclick="insert(' - ')">-</button>
+
+<!-- Row 4 -->
+<button class="num-font" onclick="insert('1')">1</button>
+<button class="num-font" onclick="insert('2')">2</button>
+<button class="num-font" onclick="insert('3')">3</button>
+<button onclick="insert(' + ')">+</button>
+
+<!-- Row 5 -->
+<button class="num-font" onclick="insert('0')">0</button>
+<button onclick="insert('.')">.</button>
+<button onclick="calculate()">=</button>
+<button onclick="insert('(')">(</button>
+<button onclick="insert(')')">)</button>
+
+<!-- Scientific Functions -->
+<button onclick="insert('sin()')">sin</button>
+<button onclick="insert('cos()')">cos</button>
+<button onclick="insert('tan()')">tan</button>
+<button onclick="insert('√()')">√</button>
+<button onclick="insert('^')">x^y</button>
+<button onclick="insert('ln()')">ln</button>
+      </div>
     </div>
-    <div class="buttons">
-      <!-- Row 1 -->
-      <button class="red-button" onclick="clearResult()">AC</button>
-      <button class="red-button" onclick="deleteChar()">DEL</button>
-      <button onclick="insert('%')">%</button>
-      <button onclick="insert('÷')">÷</button>
-      <!-- Row 2 -->
-      <button onclick="insert('7')">7</button>
-      <button onclick="insert('8')">8</button>
-      <button onclick="insert('9')">9</button>
-      <button onclick="insert('x')">x</button>
-      <!-- Row 3 -->
-      <button onclick="insert('4')">4</button>
-      <button onclick="insert('5')">5</button>
-      <button onclick="insert('6')">6</button>
-      <button onclick="insert('-')">-</button>
-      <!-- Row 4 -->
-      <button onclick="insert('1')">1</button>
-      <button onclick="insert('2')">2</button>
-      <button onclick="insert('3')">3</button>
-      <button onclick="insert('+')">+</button>
-      <!-- Row 5 -->
-      <button onclick="insert('0')">0</button>
-      <button onclick="insert('.')">.</button>
-      <button onclick="calculate()">=</button>
-      <button onclick="insert('(')">(</button>
-      <button onclick="insert(')')">)</button>
-      <!-- Scientific Functions -->
-      <button onclick="insert('Math.sin(')">sin</button>
-      <button onclick="insert('Math.cos(')">cos</button>
-      <button onclick="insert('Math.tan(')">tan</button>
-      <button onclick="insert('Math.sqrt(')">√</button>
-      <button onclick="insert('Math.pow(')">x^y</button>
-      <button onclick="insert('Math.log(')">ln</button>
-    </div>
-  </div>
-  <script src="script.js"></script>
-</body>
+  </div>  <script src="script.js"></script>  <script>
+    window.addEventListener("load", () => {
+      setTimeout(() => {
+        document.getElementById("splash-screen").style.display = "none";
+        document.getElementById("main-app").style.display = "block";
+      }, 2500); // match fadeOut duration
+    });
+  </script></body>
 </html>

@@ -1,18 +1,18 @@
-// Show the main app after the splash screen is hidden
-window.onload = function () {
-  const splashScreen = document.getElementById("splash-screen");
-  const mainApp = document.getElementById("main-app");
-
-  setTimeout(() => {
-    splashScreen.style.display = "none"; // Hide splash screen
-    mainApp.style.display = "block";    // Show main app
-  }, 2500);
-};
-
-// Calculator functions
 function insert(value) {
   const result = document.getElementById("result");
-  result.value += value;
+  const start = result.selectionStart;
+  const end = result.selectionEnd;
+  const text = result.value;
+  
+  result.value = text.slice(0, start) + value + text.slice(end);
+  
+  if (value.endsWith("()")) {
+    result.selectionStart = result.selectionEnd = start + value.length - 1;
+  } else {
+    result.selectionStart = result.selectionEnd = start + value.length;
+  }
+
+  result.focus();
 }
 
 function clearResult() {
@@ -21,14 +21,47 @@ function clearResult() {
 
 function deleteChar() {
   const result = document.getElementById("result");
-  result.value = result.value.slice(0, -1);
+  const start = result.selectionStart;
+  const end = result.selectionEnd;
+
+  if (start === end && start > 0) {
+    
+    result.value = result.value.slice(0, start - 1) + result.value.slice(end);
+    result.selectionStart = result.selectionEnd = start - 1;
+  } else {
+    
+    result.value = result.value.slice(0, start) + result.value.slice(end);
+    result.selectionStart = result.selectionEnd = start;
+  }
+
+  result.focus();
 }
+
+window.addEventListener("load", () => {
+  setTimeout(() => {
+    document.getElementById("splash-screen").style.display = "none";
+    // #main-app is already flex + fade-in
+  }, 2500);
+});
 
 function calculate() {
   const result = document.getElementById("result");
   try {
-    result.value = eval(result.value.replace(/x/g, "*").replace(/÷/g, "/"));
-  } catch {
+    let expression = result.value
+      .replace(/×/g, "*")
+      .replace(/÷/g, "/")
+      .replace(/%/g, "/100")
+      .replace(/√/g, "Math.sqrt");
+    
+    expression = expression
+      .replace(/sin\(/g, "Math.sin(Math.PI/180*")
+      .replace(/cos\(/g, "Math.cos(Math.PI/180*")
+      .replace(/tan\(/g, "Math.tan(Math.PI/180*")
+    
+    expression = expression.replace(/(\d+)\^(\d+)/g, "Math.pow($1,$2)");
+
+    result.value = eval(expression);
+  } catch (error) {
     result.value = "Error";
   }
 }
