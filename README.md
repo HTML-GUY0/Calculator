@@ -1,5 +1,5 @@
-# Calculator
-It is a Simple Calculator, consisting of multiplication, addition, subtraction, division and more.
+# ➗ Calculator ✖️
+It is a Calculator, consisting of **multiplication, addition, subtraction, division and some scientific features**.
 
 # 💻 Desktop Demo
 ![Calculator Demo](example-desktop.png)
@@ -11,7 +11,7 @@ It is a Simple Calculator, consisting of multiplication, addition, subtraction, 
 
 - There are no errors:)
 
-# ⭐ What's Special?
+# 🌟 What's Special?
 
 - It has a good UI 
   
